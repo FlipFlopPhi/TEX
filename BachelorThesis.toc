@@ -1,0 +1,11 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {chapter}{\numberline {2}Preliminaries}{3}
+\contentsline {chapter}{\numberline {3}method}{4}
+\contentsline {section}{\numberline {3.1}design}{4}
+\contentsline {subsection}{\numberline {3.1.1}the translator}{5}
+\contentsline {subsection}{\numberline {3.1.2}the analyzer}{5}
+\contentsline {section}{\numberline {3.2}difficulties}{6}
+\contentsline {section}{\numberline {3.3}discussion}{6}
+\contentsline {chapter}{\numberline {4}Related Work}{7}
+\contentsline {chapter}{\numberline {5}Conclusions}{8}
+\contentsline {chapter}{\numberline {A}Appendix}{9}

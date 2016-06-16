@@ -1,0 +1,38 @@
+\chapter{method}\label{method}
+The first part of the final product is able to change websites into data. While it currently does not take every css attribute in consideration when calculating the corresponding values, it does for most of them, and shows it is possible to turn website layouts into data elements.\\
+The other part of the product is able to calculate distances between the generated elements, and is also able to generate averages between data elements, which allows us to use analysis tools such as clustering.\\
+The total product shows us that it is also possible to analyze website on their layout alone. And while it could certainly be improved on certain aspects, as will be explained later in this chapter, it does give a working step-by-step process of converting website-layouts into data-elements and analyzing these.\\
+It is worth noting that, during the development process, we've used the top 25 most-visited sites in the US to test our software. These websites have been chosen, because not only are they widely used, they also use varying design principles. For example, google.com uses mostly inline css declaration, while live.com uses almost no inline\-css and refers to an external domain for style declarations.\\
+However during the development-process, we've left out three websites: Twitter.com, Reddit.com and Tumblr.com. These were left out because they were to big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.
+\section{design}
+As explained above, the created piece of software is combination of two pieces.
+
+\subsection{the translator}
+The first piece is the part of the program that is responsible for turning websites into data elements. This is done by opening a virtual browser window using the Ghost.py library for python. The window that we've used for this research was $1920x1080$, however different resolutions can be used when needed.\\
+Once the window is generated a website can be loaded in. On every website we use two pieces of JavaScript code. The first, "pre.js" is used to make XMLHttpRequests to load in style-sheets from external domains, and turning them into style-nodes. This is done because it is no longer possible to use data from a different domain than the domain at which the JavaScript is executed.\\
+When all external style-sheets have been converted "core.js", the second piece of JavaScript, is executed. First all the internal style-sheet rules are assigned to their corresponding elements, by making them inline. This is done so that we don't have to look through all the css-rules every-time we want to look up one of the style properties of an element. Once we've done this, we start recursively calculating the width and height of every element, and their placement relative to their parent element.\\
+Thus for every element we keep the following information:
+\begin{itemize}
+	\item the elements width
+	\item the elements height
+	\item the elements horizontal offset, relative to its parent
+	\item the elements vertical offset, relative to its parent
+	\item the children (and their values) belonging to this element
+\end{itemize}
+We also have an extra slot we use to save information that we can use for debugging. This value is however never used later.\\
+Once calculated, the elements and their values are saved to our local database, so that they can be used (by the second piece of our program) for analysis.
+
+\subsection{the analyzer}
+The second part of the program can then be used to analyze the new data elements using our own adaption of the edit-tree distance metric.
+\footnote{The adaption of the Edit-Tree-Distance algorithm can be found in the "LooseEditComparer.java" class.}
+When we look at an element in our tree, we can simplyfy it to having two properties, the four values (width, height, vertical offset and horizontal offset) and its possible children. The way we calculate the distance between two branches is by looking at these two properties. We can project the four values to two vectors, and then calculate the rational distance between the original vector and the vector of the other branch, this gives us the cost of substituting the original element with the other one.\\
+Then we calculate the distance between all the children of our element and all of the children of the other element. We use the shortest distance found, or use the cost of creating the specific child if it's smaller than the shortest distance. The distance between two branches is than the total of these two costs.\\
+For calculating the average we do a similar thing. Since the four values are actually vectors we can calculate these averages via conventional mathematical means. For the children, we try to find the closest pairs again, and then calculate the averages of those pairs.
+
+\section{difficulties}
+During the design and creation process, we've stumbled on certain problems that are worth mentioning.\\
+As stated before, one big problem with JavaScript is that it is impossible to retrieve data from an external domain. We solved this by using CORS to make the external data local. This is however only possible if the external domain has CORS enabled. Thus the problem could arise that it is no longer possible to correctly retrieve the css-information via the current method.
+Another problem is auto generated values that are created when the 'auto' keyword is used. Since the specific implementation is browser specific, the exact result depends on the browser that is used. Since we're using a custom browser, these values are not always computed as we want. For example \textit{'margin auto'} does not center elements in our browser, while it would do so in others. Because of this we don't use the \textit{'Window.getComputedStyle()'} method, but we calculate the values ourselves. 
+
+\section{discussion}
+Hier zal ik mijn eigen werk aan de kaak stellen, en discussieren wat duidelijke verbeterpunten zijn voor het onderzoek.
