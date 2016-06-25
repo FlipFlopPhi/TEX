@@ -1,9 +1,8 @@
-\chapter{method}\label{method}
-The first part of the final product is able to change websites into data. While it currently does not take every css attribute in consideration when calculating the corresponding values, it does for most of them, and shows it is possible to turn website layouts into data elements.\\
+\chapter{Method}\label{method}
+The first part of the final product is able to transform websites into data. While it currently does not take every css attribute in consideration when calculating the corresponding values, it does for most of them, and shows it is possible to turn website layouts into data elements.\\
 The other part of the product is able to calculate distances between the generated elements, and is also able to generate averages between data elements, which allows us to use analysis tools such as clustering.\\
 The total product shows us that it is also possible to analyze website on their layout alone. And while it could certainly be improved on certain aspects, as will be explained later in this chapter, it does give a working step-by-step process of converting website-layouts into data-elements and analyzing these.\\
-It is worth noting that, during the development process, we've used the top 25 most-visited sites in the US to test our software. These websites have been chosen, because not only are they widely used, they also use varying design principles. For example, google.com uses mostly inline css declaration, while live.com uses almost no inline\-css and refers to an external domain for style declarations.\\
-However during the development-process, we've left out three websites: Twitter.com, Reddit.com and Tumblr.com. These were left out because they were to big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.
+It is worth noting that, during the development process, we've used the top 25 most-visited sites in the US to test our software. These websites have been chosen, because not only are they widely used, they also use varying design principles. For example, google.com uses mostly inline css declaration, while live.com uses almost no inline\-css and refers to an external domain for style declarations.
 \section{design}
 As explained above, the created piece of software is combination of two pieces.
 
@@ -25,7 +24,7 @@ Once calculated, the elements and their values are saved to our local database, 
 \subsection{the analyzer}
 The second part of the program can then be used to analyze the new data elements using our own adaption of the edit-tree distance metric.
 \footnote{The adaption of the Edit-Tree-Distance algorithm can be found in the "LooseEditComparer.java" class.}
-When we look at an element in our tree, we can simplyfy it to having two properties, the four values (width, height, vertical offset and horizontal offset) and its possible children. The way we calculate the distance between two branches is by looking at these two properties. We can project the four values to two vectors, and then calculate the rational distance between the original vector and the vector of the other branch, this gives us the cost of substituting the original element with the other one.\\
+When we look at an element in our tree, we can simplify it to having two properties, the four values (width, height, vertical offset and horizontal offset) and its possible children. The way we calculate the distance between two branches is by looking at these two properties. We can project the four values to two vectors, and then calculate the rational distance between the original vector and the vector of the other branch, this gives us the cost of substituting the original element with the other one.\\
 Then we calculate the distance between all the children of our element and all of the children of the other element. We use the shortest distance found, or use the cost of creating the specific child if it's smaller than the shortest distance. The distance between two branches is than the total of these two costs.\\
 For calculating the average we do a similar thing. Since the four values are actually vectors we can calculate these averages via conventional mathematical means. For the children, we try to find the closest pairs again, and then calculate the averages of those pairs.
 
@@ -33,6 +32,3 @@ For calculating the average we do a similar thing. Since the four values are act
 During the design and creation process, we've stumbled on certain problems that are worth mentioning.\\
 As stated before, one big problem with JavaScript is that it is impossible to retrieve data from an external domain. We solved this by using CORS to make the external data local. This is however only possible if the external domain has CORS enabled. Thus the problem could arise that it is no longer possible to correctly retrieve the css-information via the current method.
 Another problem is auto generated values that are created when the 'auto' keyword is used. Since the specific implementation is browser specific, the exact result depends on the browser that is used. Since we're using a custom browser, these values are not always computed as we want. For example \textit{'margin auto'} does not center elements in our browser, while it would do so in others. Because of this we don't use the \textit{'Window.getComputedStyle()'} method, but we calculate the values ourselves. 
-
-\section{discussion}
-Hier zal ik mijn eigen werk aan de kaak stellen, en discussieren wat duidelijke verbeterpunten zijn voor het onderzoek.
