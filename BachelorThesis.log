@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.6)  6 JUN 2016 23:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.6)  27 JUN 2016 21:40
 entering extended mode
 **BachelorThesis.tex
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\BachelorThesis.tex
@@ -943,72 +943,94 @@ nie/Scriptie/LaTeX_ThesisEnglish/imgs/logo.png>]
 
 ]
 Chapter 1.
-) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\preliminaries.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--7
+
+ []
+
 [2
 
 ]
-Chapter 2.
-) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\method.tex
-[3
-
-]
-Chapter 3.
-[4
-
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 10.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
+)
+(G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\relatedwork.tex
+[3]
+Chapter 2.
+) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\method.tex
+[4
 
-Overfull \hbox (3.75336pt too wide) in paragraph at lines 22--24
+]
+Chapter 3.
+[5
+
+]
+Overfull \hbox (3.75336pt too wide) in paragraph at lines 21--23
 \OT1/cmr/m/n/10.95 Once cal-cu-lated, the el-e-ments and their val-ues are save
 d to our lo-cal database,
  []
 
-[5]) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\relatedwork.tex
-[6]
+[6]) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\conclusions.tex
+[7]
 Chapter 4.
-) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\conclusions.tex
-[7
+
+Overfull \hbox (25.04207pt too wide) in paragraph at lines 10--23
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--23
+
+ []
+
+[8
 
 ]
-Chapter 5.
+Overfull \hbox (29.36429pt too wide) in paragraph at lines 31--32
+[]\OT1/cmr/m/n/10.95 Cluster 3 Msn.com , Linkedin.com , Wikipedia.org, Imgur.co
+m, Espn.go.com,
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--41
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 43--47
 
  []
 
 )
 No file BachelorThesis.bbl.
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\appendix.tex
-[8
-
-]
+[10]
 Appendix A.
 )
-Overfull \hbox (20.87527pt too wide) in paragraph at lines 2--79
+Overfull \hbox (20.87527pt too wide) in paragraph at lines 2--78
 \OT1/cmr/m/n/10.95 The writ-ten code can be found at \OT1/cmtt/m/n/10.95 https:
 //github.com/VizuTheShaman/Parsie
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--79
+Underfull \hbox (badness 10000) in paragraph at lines 2--78
 
  []
 
-[9
+[11
 
 ]
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\BachelorThesis.aux) 
 ) 
 Here is how much of TeX's memory you used:
- 17085 strings out of 493921
- 308882 string characters out of 3144880
- 397030 words of memory out of 3000000
- 20014 multiletter control sequences out of 15000+200000
+ 17083 strings out of 493921
+ 308718 string characters out of 3144880
+ 397023 words of memory out of 3000000
+ 20015 multiletter control sequences out of 15000+200000
  14529 words of font info for 56 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  62i,8n,56p,3245b,277s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1026,9 +1048,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on BachelorThesis.pdf (11 pages, 795626 bytes).
+Output written on BachelorThesis.pdf (13 pages, 805331 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,8 +1,51 @@
 \chapter{Discusion}\label{Discusion}
-Our current implementation is able to create an objective representation of the websites we're using. 
-We have shown that it is possible to retrieve information from a website, while only looking at the layout. However our current implementation is very crude and could definitely be improved on certain aspects.\\
+Our current implementation is able to create an objective representation of the websites we are using. 
+We have shown that it is possible to retrieve information from a website, while only looking at the layout. However our current implementation is very crude and could definitely be improved on certain aspects.
 
 \section{Evaluation}
-During the development-process, we have left out three websites: Twitter.com, Reddit.com and Tumblr.com. These were left out because they were to big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.\\
-Our current parser, also doesn't handle every css-attribute, however the current parser is able to retrieve them, thus a future version would be able to handle these. This means that while our solution is incomplete, it is still a valid proof of concept, since it still shows us that there is information inside the websites layout.
+During the development-process, we have left out three websites: Twitter.com and Reddit.com These were left out because they were to big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.\\
+Our current parser, also does not handle every css-attribute, however the current parser is able to retrieve the css-attributes, thus a future version would be able to handle these. This means that while our solution is incomplete, it is still a valid proof of concept, since it still shows us that there is information inside the websites layout.
 
+\subsection{Usefulness of retrieved information}
+We have shown that it is possible to retrieve information about website layouts. However we would like this information to be useful. To see whether this is the case we will take a look at different pieces of functionality provided by our program.
+\\
+\begin{tabular}{|c c c c c|}
+\hline
+\multicolumn{5}{|l|}{Parsed websites} \\
+\hline
+google.com & Facebook.com & Amazon.com & Wikipedia.org & Ebay.com \\ 
+Netflix.com & Linkedin.com & Craigslist.org & Pinterest.com & Live.com \\
+Imgur.com & Go.com & Bing.com & Chase.com & Instagram.com \\
+Paypal.com & Tumblr.com & Diply.com & cnn.com & Espn.go.com \\
+Msn.com \\
+\hline
+\end{tabular} \\
+
+\subsubsection*{Clustering} 
+The program has the ability to cluster using a nearest-neighbor algorithm and a K-means algorithm.
+\\ When clusering using nearest neighbour we gain the following clusters:
+\begin{itemize}
+\item{Cluster 0} Pinterest.com, Facebook.com and Paypal.com
+\item{Cluster 1} Instagram.com, Live.com, google.com, Amazon.com, Netflix.com, Craigslist.org, Bing.com and Chase.com
+\item{Cluster 2} cnn.com and Go.com
+\item{Cluster 3} Msn.com , Linkedin.com , Wikipedia.org, Imgur.com, Espn.go.com, Tumblr.com and Ebay.com
+\end{itemize}
+Unfortunately the clusters do not seem to correlate with the purposes of the parsed websites; socialmedia and news-sites are divided over different clusters. With only online advertisement and platforms (Craigslist and Ebay) being in the same cluster. However what we do notice is correlation between the usage of headers and alignment of elements.
+\subsubsection*{Finding the most similar tree}
+Our program is also capable of retrieving the site most similar to another site. When we do this, we notice the following \'most generic\' sites (Sites with the most closest sites). With our current pool, there are 5 sites that have Google as their nearest neighbor and 4 sites (one of them being google) with Live.com as nearest neighbor. When we take a look at the designs of these two websites, we notice that these websites consist of mostly empty space and very few displayed content.
+\\When we look at their neighbors (which are the other memebers of Cluster 1), we notice that except for Amazon.com, all of these share a similar grade of complexity. This possible property means that the less complex a website is, the more websites see it as their nearest neighbor.
+\\ A possible usage of this, would be creating a directed graph using a lot more websites, one edge coming from every node and going into their respective nearest neighbor. If the bigger graph maintains the same property, we can see how complex a website is, be seeing how few edges go into the website\'s node.
+\\ Further research could then be conducted to whether this complexity correlates with the usability of a website.
+\\\\
+Although our current implementation does not seam to yield valuable information through clustering, it does seem that there is useful information to be retrieved by looking at what websites differ the least. We should also be taken into account that due to our relatively small dataset, some correlations might not be apparent and some correlations that now exist, might not be there, once a larger set is used.
+
+\subsection{The value of Edit-Tree-Distance as a proxy}
+Edit-Tree-Distance seems to be a good basis for design distance metrics for websites. As we have shown, it is relatively easy to translate website-layouts into data-trees, because of their tree-like nature. However it does fall short at some aspects.
+\\For example, the origal edit-tree-distance algorithm only works in exacts. This means that it can only say whether a node in the tree is different or equal. Because of this we have to come up with our own way of calculating the difference between different nodes, bringing us back to our original problem, but only smaller.
+\\The algorithm is also a very complex distance metric. Because of this calculating the distance between different nodes, can be very time consuming.
+\\\\However it does seem that this is the best basis we currently have, and thus the best proxy we can use.
+
+\section{Future work}
+An unfortunate issue of trying to analyze data-sets that have not been analyzed before, is the lack of a frame of reference for measuring its validity, because of this most of the validity comes from further usage of the methods, that we've designed.
+\\ One of the most prominent things of continuing on this research will be analyzing a bigger collection of websites (ca. 500). Due to time constraints we were only able to use a small set websites, however now that we've already laid the groundwork for translating websites, we should be able to use a larger set.
+\\ In our current research we have not looked at human interpretation. It might be interesting to use surveys to test the validity of our current implementation.
