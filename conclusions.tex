@@ -1,15 +1,12 @@
 \chapter{Discusion}\label{Discusion}
-Our current implementation is able to create an objective representation of the websites we are using. 
-We have shown that it is possible to retrieve information from a website, while only looking at the layout. However our current implementation is very crude and could definitely be improved on certain aspects.
+In this chapter, we evaluate to what extent the comparison of web page layout structure using weighted tree edit distance, captures the right information.
 
-\section{Evaluation}
-During the development-process, we have left out three websites: Twitter.com and Reddit.com These were left out because they were to big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.\\
+\section{Evaluation of used data}
+During the development-process, we have used the top 25 most-visited websites in the US, taken from Alexa.com, to test our software. These websites have been chosen, because not only are they widely used, they also use varying design principles. For example, Google.com uses mostly inline css declaration, while live.com uses almost no inline css and refers to an external domain for style declaration.
+\\We have left out two websites: Twitter.com and Reddit.com. Because of the infinite scrolling capabilities of these pages, the were too big to be handled by our software. However if the html-parser were to be made more efficient, then these websites would also be able to be parsed.\\
 Our current parser, also does not handle every css-attribute, however the current parser is able to retrieve the css-attributes, thus a future version would be able to handle these. This means that while our solution is incomplete, it is still a valid proof of concept, since it still shows us that there is information inside the websites layout.
-
-\subsection{Usefulness of retrieved information}
-We have shown that it is possible to retrieve information about website layouts. However we would like this information to be useful. To see whether this is the case we will take a look at different pieces of functionality provided by our program.
-\\
-\begin{tabular}{|c c c c c|}
+\\ This leaves us with the following data set.
+\\\begin{tabular}{|c c c c c|}
 \hline
 \multicolumn{5}{|l|}{Parsed websites} \\
 \hline
@@ -20,32 +17,35 @@ Paypal.com & Tumblr.com & Diply.com & cnn.com & Espn.go.com \\
 Msn.com \\
 \hline
 \end{tabular} \\
+\\Before we start assessing the usefulness of analyzing our data, we have to take into account that due to the size of this research we are only using a small set of data. Thus some properties and correlations might not be apparent with our current set and some might not be there once a larger set is used.
 
-\subsubsection*{Clustering} 
-The program has the ability to cluster using a nearest-neighbor algorithm and a K-means algorithm.
-\\ When clusering using nearest neighbour we gain the following clusters:
+
+\section{Evaluation by clustering}
+The second component of our program is able to do nearest-neighbor clustering using the tree edit distance as distance metric. Using this on the 23 websites we have, results in the following clusters:
 \begin{itemize}
 \item{Cluster 0} Pinterest.com, Facebook.com and Paypal.com
 \item{Cluster 1} Instagram.com, Live.com, google.com, Amazon.com, Netflix.com, Craigslist.org, Bing.com and Chase.com
 \item{Cluster 2} cnn.com and Go.com
 \item{Cluster 3} Msn.com , Linkedin.com , Wikipedia.org, Imgur.com, Espn.go.com, Tumblr.com and Ebay.com
 \end{itemize}
-Unfortunately the clusters do not seem to correlate with the purposes of the parsed websites; socialmedia and news-sites are divided over different clusters. With only online advertisement and platforms (Craigslist and Ebay) being in the same cluster. However what we do notice is correlation between the usage of headers and alignment of elements.
-\subsubsection*{Finding the most similar tree}
-Our program is also capable of retrieving the site most similar to another site. When we do this, we notice the following \'most generic\' sites (Sites with the most closest sites). With our current pool, there are 5 sites that have Google as their nearest neighbor and 4 sites (one of them being google) with Live.com as nearest neighbor. When we take a look at the designs of these two websites, we notice that these websites consist of mostly empty space and very few displayed content.
-\\When we look at their neighbors (which are the other memebers of Cluster 1), we notice that except for Amazon.com, all of these share a similar grade of complexity. This possible property means that the less complex a website is, the more websites see it as their nearest neighbor.
-\\ A possible usage of this, would be creating a directed graph using a lot more websites, one edge coming from every node and going into their respective nearest neighbor. If the bigger graph maintains the same property, we can see how complex a website is, be seeing how few edges go into the website\'s node.
-\\ Further research could then be conducted to whether this complexity correlates with the usability of a website.
-\\\\
-Although our current implementation does not seam to yield valuable information through clustering, it does seem that there is useful information to be retrieved by looking at what websites differ the least. We should also be taken into account that due to our relatively small dataset, some correlations might not be apparent and some correlations that now exist, might not be there, once a larger set is used.
 
-\subsection{The value of Edit-Tree-Distance as a proxy}
-Edit-Tree-Distance seems to be a good basis for design distance metrics for websites. As we have shown, it is relatively easy to translate website-layouts into data-trees, because of their tree-like nature. However it does fall short at some aspects.
-\\For example, the origal edit-tree-distance algorithm only works in exacts. This means that it can only say whether a node in the tree is different or equal. Because of this we have to come up with our own way of calculating the difference between different nodes, bringing us back to our original problem, but only smaller.
-\\The algorithm is also a very complex distance metric. Because of this calculating the distance between different nodes, can be very time consuming.
-\\\\However it does seem that this is the best basis we currently have, and thus the best proxy we can use.
+If the layout structure can convey the function of a website, clustering should group similar sites together. Unfortunately the clusters do not seem to correlate with the purposes of the parsed websites; socialmedia and news-sites are divided over different clusters. With only online advertisement and platforms (Craigslist and Ebay) being in the same cluster. 
+
+\section{Evaluation by similarity}
+An alternative analysis evaluates the result of the similarity measure per site. This is done by generating a directed graph, in this graph every vertex represents one of the web pages. From every vertex a directed edge is created towards their nearest neighbor. The resulting graph is able to show us which sites are generic. A generic site is a site with the a large amount of edges going towards it.
+\\When the similarity graph of our 23 websites is generated, we notice that Google.com and Live.com have the 'most generic' web pages. when we take a look at the design of these two websites, we notice that these websites consist of mostly empty space and very few displayed content.
+\\When we look at their neighbors (which are the other members of Cluster 1), we notice that except for Amazon.com, all of these share a similar grade of complexity. This is because the similarity graph has the property that the complexity of a web pages design correlates with the amount of edges going toward its vertex.
+\\We can count the amount of vertexes leading (either directly or indirectly) to a web page, and rank the pages according to this sum. The result is a ranking showing how generic each web page is. We hope that the highest ranking pages could serve as design templates, because they are the most generic according to our ranking.
+\\According to this measure, Google.com (with 4 direct neighbors) and Live.com (with 5 direct neighbors) are the most generic web pages in our study. Google.com is also similar to Live.com.
+
+\section{The value of tree edit distance as a proxy}
+Our current adaptation of tree edit distance seems to be a good basis for design distance metrics for websites. Because its weighting prefers less complex websites, we can use it to rank websites on their simplicity in layout and possibly to generate templates.
+\\However the original tree edit distance algorithm only works in exacts. This means that it can only say whether a node in the tree is equal to another node. Because of this we have to come up with our own way of calculating the difference between different nodes, bringing us back to our original problem, but only smaller.
+\\And while it is possible, calculating the distance between different nodes using our algorithm can be time consuming. Thus our adaptation of the tree edit distance may need to be improved before it can be applied to a larger data set.
 
 \section{Future work}
-An unfortunate issue of trying to analyze data-sets that have not been analyzed before, is the lack of a frame of reference for measuring its validity, because of this most of the validity comes from further usage of the methods, that we've designed.
-\\ One of the most prominent things of continuing on this research will be analyzing a bigger collection of websites (ca. 500). Due to time constraints we were only able to use a small set websites, however now that we've already laid the groundwork for translating websites, we should be able to use a larger set.
-\\ In our current research we have not looked at human interpretation. It might be interesting to use surveys to test the validity of our current implementation.
+An unfortunate issue of trying to analyze data-sets that have not been analyzed before, is the lack of a frame of reference for measuring its validity, because of this most of the validity comes from further usage of the methods, that we have designed.
+\\ One of the most prominent things of continuing on this research will be analyzing a bigger collection of websites. Due to time constraints and the large time-complexity of our algorithm, we were only able to use a small set websites. However, now that we are capable of transforming web pages, we should be able to use a larger set in following research.
+\\ In our current research we have not looked at human interpretation. It would be an interesting extension of our work to use surveys to test the validity of our current implementation choices.
+\\ A possible usage of the similarity graph, would be creating a directed graph using a lot more websites, one edge coming from every node and going into their respective nearest neighbor. If the bigger graph maintains the same property, we can see how complex a website is, be seeing how few edges go into the website's node.
+\\ Further research could then be conducted to whether this complexity correlates with the usability of a website.

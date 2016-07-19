@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.6)  27 JUN 2016 21:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.6)  13 JUL 2016 17:34
 entering extended mode
 **BachelorThesis.tex
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\BachelorThesis.tex
@@ -969,46 +969,42 @@ Chapter 3.
 [5
 
 ]
-Overfull \hbox (3.75336pt too wide) in paragraph at lines 21--23
+Overfull \hbox (3.75336pt too wide) in paragraph at lines 21--24
 \OT1/cmr/m/n/10.95 Once cal-cu-lated, the el-e-ments and their val-ues are save
 d to our lo-cal database,
  []
 
-[6]) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\conclusions.tex
-[7]
+) (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\conclusions.tex
+[6] [7]
 Chapter 4.
 
-Overfull \hbox (25.04207pt too wide) in paragraph at lines 10--23
+Overfull \hbox (25.04207pt too wide) in paragraph at lines 5--21
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--23
+Underfull \hbox (badness 10000) in paragraph at lines 5--21
 
  []
 
 [8
 
 ]
-Overfull \hbox (29.36429pt too wide) in paragraph at lines 31--32
+Overfull \hbox (29.36429pt too wide) in paragraph at lines 29--30
 []\OT1/cmr/m/n/10.95 Cluster 3 Msn.com , Linkedin.com , Wikipedia.org, Imgur.co
 m, Espn.go.com,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--41
-
+Overfull \hbox (6.99277pt too wide) in paragraph at lines 35--40
+\OT1/cmr/m/n/10.95 According to this mea-sure, Google.com (with 4 di-rect neigh
+-bors) and Live.com
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 43--47
-
- []
-
-)
+[9]) [10]
 No file BachelorThesis.bbl.
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\appendix.tex
-[10]
+[11]
 Appendix A.
 )
 Overfull \hbox (20.87527pt too wide) in paragraph at lines 2--78
@@ -1021,16 +1017,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--78
 
  []
 
-[11
+[12
 
 ]
 (G:\Users\Vizu\Documents\Unie\Scriptie\LaTeX_ThesisEnglish\BachelorThesis.aux) 
 ) 
 Here is how much of TeX's memory you used:
- 17083 strings out of 493921
- 308718 string characters out of 3144880
- 397023 words of memory out of 3000000
- 20015 multiletter control sequences out of 15000+200000
+ 17081 strings out of 493921
+ 308702 string characters out of 3144880
+ 396023 words of memory out of 3000000
+ 20013 multiletter control sequences out of 15000+200000
  14529 words of font info for 56 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  62i,8n,56p,3245b,277s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1048,9 +1044,9 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on BachelorThesis.pdf (13 pages, 805331 bytes).
+Output written on BachelorThesis.pdf (14 pages, 804046 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
+ 110 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

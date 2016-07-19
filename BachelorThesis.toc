@@ -3,13 +3,14 @@
 \contentsline {chapter}{\numberline {2}Related Work}{4}
 \contentsline {section}{\numberline {2.1}Preliminary knowledge}{4}
 \contentsline {chapter}{\numberline {3}Method}{5}
-\contentsline {section}{\numberline {3.1}design}{5}
-\contentsline {subsection}{\numberline {3.1.1}the translator}{5}
-\contentsline {subsection}{\numberline {3.1.2}the analyzer}{6}
-\contentsline {section}{\numberline {3.2}difficulties}{7}
+\contentsline {section}{\numberline {3.1}Transformation}{5}
+\contentsline {subsection}{\numberline {3.1.1}Style sheet handling}{5}
+\contentsline {subsection}{\numberline {3.1.2}Tree representation}{6}
+\contentsline {section}{\numberline {3.2}the analyzer}{6}
 \contentsline {chapter}{\numberline {4}Discusion}{8}
-\contentsline {section}{\numberline {4.1}Evaluation}{8}
-\contentsline {subsection}{\numberline {4.1.1}Usefulness of retrieved information}{8}
-\contentsline {subsection}{\numberline {4.1.2}The value of Edit-Tree-Distance as a proxy}{10}
-\contentsline {section}{\numberline {4.2}Future work}{10}
-\contentsline {chapter}{\numberline {A}Appendix}{11}
+\contentsline {section}{\numberline {4.1}Evaluation of used data}{8}
+\contentsline {section}{\numberline {4.2}Evaluation by clustering}{9}
+\contentsline {section}{\numberline {4.3}Evaluation by similarity}{9}
+\contentsline {section}{\numberline {4.4}The value of tree edit distance as a proxy}{10}
+\contentsline {section}{\numberline {4.5}Future work}{10}
+\contentsline {chapter}{\numberline {A}Appendix}{12}
